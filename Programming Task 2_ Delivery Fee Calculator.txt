@@ -1,0 +1,8 @@
+def calculate():
+    return(distance * fixed_rate_per_kilometer)
+
+distance = int(input("Enter distance in kilometers: "))
+fixed_rate_per_kilometer = int(input("Enter rate per kilometer (₱): "))
+
+calculate()
+print(f"Total Delivery Fee: ₱{distance * fixed_rate_per_kilometer}")
