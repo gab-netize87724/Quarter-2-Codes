@@ -1,0 +1,65 @@
+import array
+arr = []
+
+def menu():
+    print("""
+    
+[1] Add five travel destinations
+[2] Open Original Travel Itinerary
+[3] Update second and fifth travel destinations
+[4] Open Updated Travel Itinerary
+[0] Exit
+
+    """)
+    option = int(input())
+    
+    match option:
+        case 1:
+            adding()
+            menu()
+        case 2:
+            open_original()
+            menu()
+        case 3:
+            updating()
+            menu()
+        case 4:
+            open_updated()
+            menu()
+        case 0:
+            print("Exiting Program")
+        case _:
+            print("Invalid")
+            menu()
+
+def adding():
+    print("\nPlease enter your 5 travel destinations:\n")
+    
+    for x in range(5):
+        dest = input(f"Destination {x+1}: ")
+        arr.append(dest)
+        
+def open_original():
+    if len(arr) == 0:
+        print("No destinations.")
+        return
+    
+    print("\nOriginal Travel Itinerary: ")
+    for x in range(len(arr)):
+        print(f"{x+1}. {arr[x]}")
+    print()
+    
+def updating():
+    print("\nLet's update your 2nd and 5th destinations.")
+    new_second = input("Enter a new destination for position 2: ")
+    new_fifth = input("Enter a new destination for position 5: ")
+    arr[1] = new_second
+    arr[4] = new_fifth
+    
+def open_updated():
+    print("\nUpdated Travel Itinerary:")
+    for x in range(len(arr)):
+        print(f"{x+1}. {arr[x]}")
+    print()
+    
+menu()
